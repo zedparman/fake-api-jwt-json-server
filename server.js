@@ -2,6 +2,7 @@ const fs = require('fs')
 const bodyParser = require('body-parser')
 const jsonServer = require('json-server')
 const jwt = require('jsonwebtoken')
+const cors = require('cors');
 
 const server = jsonServer.create()
 const router = jsonServer.router('./database.json')
@@ -10,6 +11,7 @@ const userdb = JSON.parse(fs.readFileSync('./users.json', 'UTF-8'))
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(bodyParser.json())
 server.use(jsonServer.defaults());
+server.use(cors())
 
 const SECRET_KEY = '123456789'
 
@@ -116,8 +118,12 @@ server.use(/^(?!\/auth).*$/,  (req, res, next) => {
   }
 })
 
+server.get('/home', (req, res) => {
+  res.send('GET request to the homepage')
+})
+
 server.use(router)
 
 server.listen(8000, () => {
-  console.log('Run Auth API Server')
+  console.log('Run Auth API Server at http://localhost:8000/home')
 })
