@@ -5,12 +5,13 @@
   "main": "main.js",
   "scripts": {
     "start": "json-server --watch ./database.json",
-    "start-auth": "node server.js"
+    "start-auth": "nodemon server.js"
   },
   "author": "ME:)",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "json-server": "^0.16.3",
     "jsonwebtoken": "^8.1.0"
   }
