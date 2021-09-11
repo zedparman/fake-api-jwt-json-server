@@ -24,8 +24,8 @@
         data() {
             return {
                 form: {
-                    email: 'bruno@email.com',
-                    password: 'bruno'
+                    email: 'nilson8@email.com',
+                    password: 'nilson'
                 }
             }
         },
